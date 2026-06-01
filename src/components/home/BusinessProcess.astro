@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const { t } = useTranslations(lang);
+
+const steps = Array.from({ length: 7 }, (_, i) => i + 1);
+---
+
+<section class="section bg-primary text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">{t("process.heading")}</h2>
+    <p class="text-blue-200 text-center max-w-2xl mx-auto mb-16">
+      {lang === "zh"
+        ? "从初次接触到持续支持，我们确保每一步都透明、专业"
+        : "From initial contact to ongoing support, we ensure every step is transparent and professional"}
+    </p>
+    <div class="relative">
+      <!-- Timeline line (desktop) -->
+      <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-blue-400/30 -translate-y-1/2"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-6">
+        {steps.map((step) => (
+          <div class="text-center relative group">
+            <div class="w-14 h-14 mx-auto bg-accent rounded-full flex items-center justify-center text-xl font-bold mb-4 relative z-10 group-hover:scale-110 transition-transform shadow-lg">
+              {step}
+            </div>
+            <h3 class="font-semibold text-white mb-2">{t(`process.step${step}`)}</h3>
+            <p class="text-sm text-blue-200 leading-relaxed">{t(`process.step${step}desc`)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+{
+  "id": "byd-song-plus",
+  "names": { "en": "BYD Song Plus", "zh": "比亚迪宋 Plus" },
+  "slug": "byd-song-plus",
+  "brand": "byd",
+  "type": "SUV",
+  "fuelType": "plug_in_hybrid",
+  "priceRange": { "min": 155800, "max": 185800, "currency": "CNY" },
+  "images": ["/images/vehicles/byd-song-plus.jpg"],
+  "specs": { "range_km": 110, "battery_kwh": 18.3, "power_kw": 145, "top_speed_kmh": 180, "seats": 5, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 3,
+  "description": {
+    "en": "Popular plug-in hybrid SUV with exceptional fuel economy and spacious interior.",
+    "zh": "畅销的插电混动 SUV，燃油经济性出色，空间宽敞舒适。"
+  }
+}

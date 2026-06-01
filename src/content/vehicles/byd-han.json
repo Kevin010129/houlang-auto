@@ -1,0 +1,18 @@
+{
+  "id": "byd-han",
+  "names": { "en": "BYD Han", "zh": "比亚迪汉" },
+  "slug": "byd-han",
+  "brand": "byd",
+  "type": "SEDAN",
+  "fuelType": "electric",
+  "priceRange": { "min": 209800, "max": 289800, "currency": "CNY" },
+  "images": ["/images/vehicles/byd-han.jpg"],
+  "specs": { "range_km": 605, "battery_kwh": 85.4, "power_kw": 180, "top_speed_kmh": 185, "seats": 5, "doors": 4 },
+  "featured": true,
+  "inStock": true,
+  "order": 4,
+  "description": {
+    "en": "Flagship electric sedan with premium interior, long range, and cutting-edge technology.",
+    "zh": "旗舰纯电轿车，豪华内饰，超长续航，搭载尖端科技。"
+  }
+}

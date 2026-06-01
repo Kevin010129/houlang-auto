@@ -1,0 +1,129 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "zh" } },
+  ];
+}
+
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+import { getCollection } from "astro:content";
+
+const lang = getLangFromUrl(Astro.url);
+const brands = await getCollection("brands");
+const featuredBrands = brands.filter((b) => b.data.featured).sort((a, b) => a.data.order - b.data.order);
+
+const isZh = lang === "zh";
+const title = isZh ? "关于后浪汽车" : "About Houlang Auto";
+const description = isZh
+  ? "常州后浪新能源汽车进出口有限公司致力于为全球客户提供专业、透明的新能源汽车出口服务。"
+  : "Changzhou Houlang NEV Import & Export Co., Ltd. is dedicated to providing professional and transparent NEV export services to global customers.";
+---
+
+<MainLayout {title} {description}>
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-bold">{title}</h1>
+      <p class="text-blue-200 mt-2">
+        {isZh ? "您值得信赖的中国新能源汽车出口伙伴" : "Your trusted partner for Chinese NEV export"}
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+            {isZh ? "我们致力于帮助，而不仅仅是销售" : "We Devote More to Helping Than Selling"}
+          </h2>
+          <div class="space-y-4 text-gray-500 leading-relaxed">
+            <p>
+              {isZh
+                ? "常州后浪新能源汽车进出口有限公司成立于中国新能源汽车产业蓬勃发展的时代，总部位于江苏省常州市。我们是一家致力于将中国最优秀的新能源汽车带给全球客户的专业出口服务商。"
+                : "Founded in the era of rapid development of China's NEV industry, Changzhou Houlang NEV Import & Export Co., Ltd. is headquartered in Changzhou, Jiangsu Province. We are a professional export service provider dedicated to bringing China's finest new energy vehicles to global customers."}
+            </p>
+            <p>
+              {isZh
+                ? "我们拥有30+中国主流新能源汽车品牌的直接采购渠道，覆盖200+车型，从微型车到豪华SUV，从纯电动到增程式，满足不同市场的多样化需求。"
+                : "We have direct procurement channels with 30+ major Chinese NEV brands, covering 200+ models from mini cars to luxury SUVs, from pure electric to extended-range, meeting diverse market demands."}
+            </p>
+          </div>
+        </div>
+        <div class="aspect-[4/3] bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">
+          {isZh ? "公司照片" : "Company Photo"}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="section bg-gray-warm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-8 shadow-sm">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">{isZh ? "我们的使命" : "Our Mission"}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            {isZh
+              ? "通过透明、可靠、专业的出口服务，将全球客户与中国最优秀的新能源汽车连接起来。"
+              : "To connect global customers with China's finest new energy vehicles through transparent, reliable, and professional export services."}
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">{isZh ? "我们的愿景" : "Our Vision"}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            {isZh
+              ? "成为中国新能源汽车制造商与国际市场之间最值得信赖的桥梁，让中国智造走向世界。"
+              : "To become the most trusted bridge between Chinese NEV manufacturers and international markets, bringing Chinese smart manufacturing to the world."}
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-8 shadow-sm">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">{isZh ? "我们的团队" : "Our Team"}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            {isZh
+              ? "由汽车行业资深人士组成的团队，在车辆采购、质量检测、国际物流和售后支持方面拥有深厚的专业知识和丰富经验。"
+              : "A team of automotive industry veterans with deep expertise and extensive experience in vehicle sourcing, quality inspection, international logistics, and after-sales support."}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands We Work With -->
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading">
+        {isZh ? "合作品牌" : "Brands We Work With"}
+      </h2>
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 mt-8">
+        {featuredBrands.map((b) => (
+          <a
+            href={`/${lang}/brands/${b.data.slug}/`}
+            class="p-4 bg-gray-50 rounded-xl flex items-center justify-center hover:bg-gray-100 transition-colors"
+          >
+            <span class="text-sm font-semibold text-gray-700">
+              {b.data.names[lang as keyof typeof b.data.names] || b.data.names.en}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>

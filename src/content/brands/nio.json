@@ -1,0 +1,14 @@
+{
+  "id": "nio",
+  "names": { "en": "NIO", "zh": "蔚来" },
+  "slug": "nio",
+  "logo": "/images/brands/nio.png",
+  "website": "https://www.nio.com",
+  "country": "CN",
+  "description": {
+    "en": "NIO is a premium EV manufacturer known for innovative battery-swapping technology.",
+    "zh": "蔚来是一家以创新换电技术著称的高端电动汽车制造商。"
+  },
+  "featured": true,
+  "order": 2
+}

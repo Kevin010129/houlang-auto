@@ -1,0 +1,13 @@
+{
+  "id": "zeekr",
+  "names": { "en": "Zeekr", "zh": "极氪" },
+  "slug": "zeekr",
+  "logo": "/images/brands/zeekr.png",
+  "country": "CN",
+  "description": {
+    "en": "Zeekr is Geely's premium EV brand, offering stylish and high-performance electric vehicles.",
+    "zh": "极氪是吉利旗下的高端电动汽车品牌，提供时尚且高性能的电动车型。"
+  },
+  "featured": true,
+  "order": 5
+}

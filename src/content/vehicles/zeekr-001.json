@@ -1,0 +1,18 @@
+{
+  "id": "zeekr-001",
+  "names": { "en": "Zeekr 001", "zh": "极氪 001" },
+  "slug": "zeekr-001",
+  "brand": "zeekr",
+  "type": "SUV",
+  "fuelType": "electric",
+  "priceRange": { "min": 269000, "max": 359000, "currency": "CNY" },
+  "images": ["/images/vehicles/zeekr-001.jpg"],
+  "specs": { "range_km": 650, "battery_kwh": 100, "power_kw": 400, "top_speed_kmh": 200, "seats": 5, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 8,
+  "description": {
+    "en": "Premium shooting-brake style electric crossover with exceptional performance and range.",
+    "zh": "高端猎装轿跑风格纯电跨界车，性能与续航同样出众。"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "chery-icar-v23",
+  "names": { "en": "Chery iCAR V23", "zh": "奇瑞 iCAR V23" },
+  "slug": "chery-icar-v23",
+  "brand": "chery",
+  "type": "SUV",
+  "fuelType": "electric",
+  "priceRange": { "min": 109800, "max": 149800, "currency": "CNY" },
+  "images": ["/images/vehicles/chery-icar-v23.jpg"],
+  "specs": { "range_km": 401, "battery_kwh": 47.28, "power_kw": 100, "top_speed_kmh": 150, "seats": 5, "doors": 5 },
+  "featured": false,
+  "inStock": true,
+  "order": 15,
+  "description": {
+    "en": "Retro-styled compact electric SUV with off-road aesthetics and affordable pricing.",
+    "zh": "复古风格紧凑型电动 SUV，越野造型外观，亲民价格。"
+  }
+}

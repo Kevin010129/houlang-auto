@@ -1,0 +1,13 @@
+{
+  "id": "xpeng",
+  "names": { "en": "XPeng", "zh": "小鹏" },
+  "slug": "xpeng",
+  "logo": "/images/brands/xpeng.png",
+  "country": "CN",
+  "description": {
+    "en": "XPeng is a leading Chinese EV startup known for advanced autonomous driving technology.",
+    "zh": "小鹏是中国领先的电动汽车新势力，以先进的自动驾驶技术著称。"
+  },
+  "featured": true,
+  "order": 6
+}

@@ -1,0 +1,43 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "zh" } },
+  ];
+}
+
+import MainLayout from "../../layouts/MainLayout.astro";
+import HeroSection from "../../components/home/HeroSection.astro";
+import VehicleCarousel from "../../components/home/VehicleCarousel.astro";
+import BrandGrid from "../../components/home/BrandGrid.astro";
+import ValueProposition from "../../components/home/ValueProposition.astro";
+import BusinessProcess from "../../components/home/BusinessProcess.astro";
+import CustomerGallery from "../../components/home/CustomerGallery.astro";
+import NewsPreview from "../../components/home/NewsPreview.astro";
+import ContactForm from "../../components/shared/ContactForm.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+const title = lang === "zh"
+  ? "常州后浪新能源汽车进出口有限公司 — 中国新能源汽车出口专家"
+  : "Changzhou Houlang NEV Import & Export — China EV Export Specialist";
+
+const description = lang === "zh"
+  ? "常州后浪汽车，中国新能源汽车出口值得信赖的伙伴。覆盖30+品牌，透明定价，专业服务。"
+  : "Houlang Auto — Your trusted partner for Chinese NEV export. 30+ brands, transparent pricing, professional service.";
+---
+
+<MainLayout {title} {description}>
+  <HeroSection />
+  <VehicleCarousel vehicleType="SEDAN" />
+  <VehicleCarousel vehicleType="SUV" />
+  <VehicleCarousel vehicleType="MPV" />
+  <VehicleCarousel vehicleType="MINI" />
+  <BrandGrid />
+  <ValueProposition />
+  <BusinessProcess />
+  <CustomerGallery />
+  <NewsPreview />
+  <ContactForm />
+</MainLayout>

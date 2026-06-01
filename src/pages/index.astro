@@ -1,0 +1,16 @@
+---
+// Root page - redirect to appropriate language
+// Check if lang is stored, otherwise redirect to /en/ by default
+---
+
+<meta http-equiv="refresh" content="0;url=/en/" />
+<script>
+  const stored = localStorage.getItem("hl-lang");
+  const browserLang = navigator.language || navigator.userLanguage;
+  const defaultLang = stored || (browserLang.startsWith("zh") ? "zh" : "en");
+  window.location.href = "/" + defaultLang + "/";
+  // Store preference if not already set
+  if (!stored) {
+    localStorage.setItem("hl-lang", defaultLang);
+  }
+</script>

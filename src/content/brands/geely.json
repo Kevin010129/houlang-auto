@@ -1,0 +1,13 @@
+{
+  "id": "geely",
+  "names": { "en": "Geely", "zh": "吉利" },
+  "slug": "geely",
+  "logo": "/images/brands/geely.png",
+  "country": "CN",
+  "description": {
+    "en": "Geely is one of China's largest automakers with a diverse portfolio of brands and electric models.",
+    "zh": "吉利是中国最大的汽车制造商之一，拥有多元化的品牌组合和电动车型。"
+  },
+  "featured": false,
+  "order": 8
+}

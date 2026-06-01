@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  lang: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const { title, description, lang, ogImage = "/images/site/og-image.jpg", canonicalURL } = Astro.props;
+const altLang = lang === "en" ? "zh" : "en";
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL || Astro.url.href} />
+<link rel="alternate" hreflang={lang} href={Astro.url.href} />
+<link rel="alternate" hreflang={altLang} href={Astro.url.href.replace(`/${lang}/`, `/${altLang}/`)} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:type" content="website" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script is:inline>
+  (function(){var t=document.documentElement.classList;var s=localStorage.getItem("hl-lang");if(s){t.add("lang-"+s)}else{var l=navigator.language||navigator.userLanguage;t.add(l.startsWith("zh")?"lang-zh":"lang-en")}})();
+</script>

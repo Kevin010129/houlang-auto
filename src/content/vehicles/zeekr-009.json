@@ -1,0 +1,18 @@
+{
+  "id": "zeekr-009",
+  "names": { "en": "Zeekr 009", "zh": "极氪 009" },
+  "slug": "zeekr-009",
+  "brand": "zeekr",
+  "type": "MPV",
+  "fuelType": "electric",
+  "priceRange": { "min": 439000, "max": 589000, "currency": "CNY" },
+  "images": ["/images/vehicles/zeekr-009.jpg"],
+  "specs": { "range_km": 702, "battery_kwh": 116, "power_kw": 400, "top_speed_kmh": 190, "seats": 6, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 10,
+  "description": {
+    "en": "Luxury electric MPV with bold design, premium cabin, and long range — the ultimate business-class travel vehicle.",
+    "zh": "豪华纯电 MPV，大胆设计，尊贵座舱，超长续航——终极商务舱出行之选。"
+  }
+}

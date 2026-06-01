@@ -1,0 +1,113 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const vehicles = await getCollection("vehicles");
+  return vehicles.flatMap((v) => [
+    { params: { lang: "en", slug: v.data.slug } },
+    { params: { lang: "zh", slug: v.data.slug } },
+  ]);
+}
+
+const { slug } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const { t } = useTranslations(lang);
+
+const vehicles = await getCollection("vehicles");
+const vehicle = vehicles.find((v) => v.data.slug === slug);
+if (!vehicle) return Astro.redirect(`/${lang}/products/`);
+
+const brands = await getCollection("brands");
+const brand = brands.find((b) => b.id === vehicle.data.brand);
+
+const v = vehicle.data;
+const name = v.names[lang as keyof typeof v.names] || v.names.en;
+const brandName = brand?.data.names[lang as keyof typeof brand.data.names] || v.brand;
+const typeLabel = t(`filter.${v.type.toLowerCase()}`);
+const fuelLabel = t(`filter.${v.fuelType}`);
+
+const specItems = [
+  v.specs.range_km && { label: t("product.range"), value: `${v.specs.range_km} km` },
+  v.specs.battery_kwh && { label: t("product.battery"), value: `${v.specs.battery_kwh} kWh` },
+  v.specs.power_kw && { label: t("product.power"), value: `${v.specs.power_kw} kW` },
+  v.specs.top_speed_kmh && { label: t("product.topSpeed"), value: `${v.specs.top_speed_kmh} km/h` },
+  v.specs.seats && { label: t("product.seats"), value: `${v.specs.seats}` },
+].filter(Boolean);
+---
+
+<MainLayout title={`${name} — Houlang Auto`} description={v.description[lang as keyof typeof v.description]}>
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-gray-400 mb-8">
+        <a href={`/${lang}/`} class="hover:text-primary">{t("nav.home")}</a>
+        <span class="mx-2">/</span>
+        <a href={`/${lang}/products/`} class="hover:text-primary">{t("nav.products")}</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">{name}</span>
+      </nav>
+
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Image -->
+        <div class="aspect-[4/3] bg-gray-100 rounded-xl overflow-hidden">
+          {v.images[0] ? (
+            <img src={v.images[0]} alt={name} class="w-full h-full object-cover" />
+          ) : (
+            <div class="w-full h-full flex items-center justify-center text-gray-400">{name}</div>
+          )}
+        </div>
+
+        <!-- Details -->
+        <div>
+          <p class="text-sm text-primary font-semibold uppercase tracking-wide">{brandName}</p>
+          <h1 class="text-3xl md:text-4xl font-bold mt-2 mb-4">{name}</h1>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            {v.description[lang as keyof typeof v.description]}
+          </p>
+
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span class="px-3 py-1 bg-blue-50 text-primary text-sm rounded-full">{typeLabel}</span>
+            <span class="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full">{fuelLabel}</span>
+            {v.inStock && (
+              <span class="px-3 py-1 bg-green-100 text-green-700 text-sm rounded-full font-medium">{t("product.inStock")}</span>
+            )}
+          </div>
+
+          <div class="bg-gray-warm rounded-xl p-6 mb-6">
+            <p class="text-sm text-gray-500 mb-1">{t("product.price")}</p>
+            <p class="text-2xl font-bold text-accent">
+              ¥{v.priceRange.min.toLocaleString()} - ¥{v.priceRange.max.toLocaleString()}
+            </p>
+          </div>
+
+          <!-- Specs Grid -->
+          {specItems.length > 0 && (
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-3">{t("product.specs")}</h3>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {specItems.map((s) => (
+                  <div class="bg-white border border-gray-100 rounded-lg p-3">
+                    <p class="text-xs text-gray-400">{s.label}</p>
+                    <p class="text-sm font-semibold text-gray-900">{s.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- CTA -->
+          <div class="mt-8">
+            <a
+              href={`/${lang}/contact/`}
+              class="inline-flex items-center px-8 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg transition-colors"
+            >
+              {t("product.inquiryNow")}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

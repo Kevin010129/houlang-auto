@@ -1,0 +1,18 @@
+{
+  "id": "nio-et5",
+  "names": { "en": "NIO ET5", "zh": "蔚来 ET5" },
+  "slug": "nio-et5",
+  "brand": "nio",
+  "type": "SEDAN",
+  "fuelType": "electric",
+  "priceRange": { "min": 298000, "max": 356000, "currency": "CNY" },
+  "images": ["/images/vehicles/nio-et5.jpg"],
+  "specs": { "range_km": 560, "battery_kwh": 75, "power_kw": 360, "top_speed_kmh": 200, "seats": 5, "doors": 4 },
+  "featured": true,
+  "inStock": true,
+  "order": 5,
+  "description": {
+    "en": "Premium mid-size electric sedan with battery-swapping capability and NIO's advanced autonomous driving.",
+    "zh": "高端中型电动轿车，支持换电，搭载蔚来先进的自动驾驶技术。"
+  }
+}

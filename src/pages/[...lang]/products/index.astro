@@ -1,0 +1,154 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "zh" } },
+  ];
+}
+
+import MainLayout from "../../../layouts/MainLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+import { getCollection } from "astro:content";
+
+const lang = getLangFromUrl(Astro.url);
+const { t } = useTranslations(lang);
+
+const vehicles = await getCollection("vehicles");
+const brands = await getCollection("brands");
+const brandMap = new Map(brands.map((b) => [b.id, b.data]));
+
+const types = ["SEDAN", "SUV", "MPV", "MINI", "LCV", "OFFROAD", "SPORTS"] as const;
+const fuelTypes = ["electric", "plug_in_hybrid", "extended_range", "petrol"] as const;
+
+const isZh = lang === "zh";
+
+const vehiclesForJs = vehicles.map((v) => {
+  const bd = brandMap.get(v.data.brand);
+  const brandName = isZh ? (bd?.names.zh ?? v.data.brand) : (bd?.names.en ?? v.data.brand);
+  const name = isZh ? v.data.names.zh : v.data.names.en;
+  return {
+    slug: v.data.slug,
+    name,
+    brandName,
+    brand: v.data.brand,
+    type: v.data.type,
+    fuelType: v.data.fuelType,
+    inStock: v.data.inStock,
+    images: v.data.images,
+    priceRange: v.data.priceRange,
+  };
+});
+
+const title = isZh ? "产品中心 — 后浪汽车" : "Products — Houlang Auto";
+const description = isZh
+  ? "浏览我们的新能源汽车产品目录。按品牌、车型、燃料类型筛选。"
+  : "Browse our full catalog of new energy vehicles. Filter by brand, type, and fuel.";
+---
+
+<MainLayout {title} {description}>
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-bold">{t("nav.products")}</h1>
+      <p class="text-blue-200 mt-2">
+        {isZh ? "覆盖中国主流新能源汽车品牌的一站式采购平台" : "One-stop sourcing platform covering all major Chinese NEV brands"}
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-white" x-data="productFilter">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-4 mb-8 p-4 bg-gray-warm rounded-xl">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">{t("product.filterByBrand")}</label>
+          <select x-model="selectedBrand" @change="updateUrl()" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white">
+            <option value="">{t("product.allBrands")}</option>
+            {brands.map((b) => (
+              <option value={b.id}>{isZh ? b.data.names.zh : b.data.names.en}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">{t("product.filterByType")}</label>
+          <select x-model="selectedType" @change="updateUrl()" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white">
+            <option value="">{t("product.allTypes")}</option>
+            {types.map((tp) => (
+              <option value={tp}>{t(`filter.${tp.toLowerCase()}`)}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">{t("product.filterByFuel")}</label>
+          <select x-model="selectedFuel" @change="updateUrl()" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white">
+            <option value="">{t("product.allFuel")}</option>
+            {fuelTypes.map((ft) => (
+              <option value={ft}>{t(`filter.${ft}`)}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <p class="text-sm text-gray-500 mb-6" x-text="filteredVehicles.length + ' vehicles found'"></p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6" id="product-grid">
+        <template x-for="v in filteredVehicles" :key="v.slug">
+          <a :href="`/${lang}/products/${v.slug}/`" class="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg hover:border-gray-200 transition-all">
+            <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center overflow-hidden">
+              <img
+                :src="v.images[0] || '/images/vehicles/placeholder.jpg'"
+                :alt="v.name"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div class="p-4">
+              <p class="text-xs text-gray-500 font-medium uppercase tracking-wide" x-text="v.brandName"></p>
+              <h3 class="text-sm font-semibold text-gray-900 mt-1 group-hover:text-primary transition-colors" x-text="v.name"></h3>
+              <span x-show="v.inStock" class="inline-block mt-2 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">{t("product.inStock")}</span>
+              <p class="text-xs text-accent font-medium mt-2">¥<span x-text="v.priceRange.min.toLocaleString()"></span> - ¥<span x-text="v.priceRange.max.toLocaleString()"></span></p>
+            </div>
+          </a>
+        </template>
+      </div>
+      <div x-show="filteredVehicles.length === 0" class="text-center py-16">
+        <p class="text-gray-400">{t("product.noResults")}</p>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script is:inline>
+  const vehiclesData = [{vehiclesForJs.map(v => JSON.stringify(v)).join(",\n    ")}];
+
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("productFilter", () => ({
+      vehicles: vehiclesData,
+      selectedBrand: "",
+      selectedType: "",
+      selectedFuel: "",
+
+      init() {
+        const params = new URLSearchParams(window.location.search);
+        this.selectedBrand = params.get("brand") || "";
+        this.selectedType = params.get("type") || "";
+        this.selectedFuel = params.get("fuel") || "";
+      },
+
+      get filteredVehicles() {
+        return this.vehicles.filter((v) => {
+          if (this.selectedBrand && v.brand !== this.selectedBrand) return false;
+          if (this.selectedType && v.type !== this.selectedType) return false;
+          if (this.selectedFuel && v.fuelType !== this.selectedFuel) return false;
+          return true;
+        });
+      },
+
+      updateUrl() {
+        const params = new URLSearchParams();
+        if (this.selectedBrand) params.set("brand", this.selectedBrand);
+        if (this.selectedType) params.set("type", this.selectedType);
+        if (this.selectedFuel) params.set("fuel", this.selectedFuel);
+        const newUrl = `${window.location.pathname}${params.toString() ? "?" + params.toString() : ""}`;
+        window.history.replaceState({}, "", newUrl);
+      },
+    }));
+  });
+</script>

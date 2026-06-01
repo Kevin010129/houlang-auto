@@ -1,0 +1,26 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const { t } = useTranslations(lang);
+---
+
+<section class="section bg-gray-warm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="section-heading">{t("home.gallery")}</h2>
+    <p class="section-subheading">
+      {lang === "zh"
+        ? "我们的团队活跃在全球各大车展和客户现场"
+        : "Our team is active at major auto shows and customer sites worldwide"}
+    </p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {Array.from({ length: 9 }, (_, i) => (
+        <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative group">
+          <div class="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-400 text-sm">
+            {lang === "zh" ? `展会照片 ${i + 1}` : `Gallery ${i + 1}`}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

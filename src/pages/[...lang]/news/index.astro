@@ -1,0 +1,86 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "zh" } },
+  ];
+}
+
+import MainLayout from "../../../layouts/MainLayout.astro";
+import { getLangFromUrl } from "../../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const isZh = lang === "zh";
+
+const articles = [
+  {
+    slug: "xiaomi-su7-ultra-production",
+    title: { en: "Xiaomi SU7 Ultra — Production Version Real Shots Revealed", zh: "小米 SU7 Ultra 量产版实拍图曝光" },
+    excerpt: { en: "The mass production version of the Xiaomi SU7 Ultra has been spotted testing, revealing aggressive styling and track-focused enhancements.", zh: "小米 SU7 Ultra 量产版已现身路试，展现出更加激进的外观设计和赛道取向的性能升级。" },
+    date: "2025-05-20",
+  },
+  {
+    slug: "zeekr-mix-launched",
+    title: { en: "Zeekr MIX Officially Launched — A New Era for Family MPVs", zh: "极氪 MIX 正式上市——开启家用 MPV 新纪元" },
+    excerpt: { en: "Zeekr has officially launched the MIX, a futuristic family MPV featuring innovative capsule-style design and versatile interior configurations.", zh: "极氪正式推出 MIX 车型，这款未来感十足的家用 MPV 采用创新的胶囊式设计和灵活多变的座舱布局。" },
+    date: "2025-05-15",
+  },
+  {
+    slug: "chery-icar-v23-presale",
+    title: { en: "Chery iCAR V23 Starts Pre-sale at Competitive Price", zh: "奇瑞 iCAR V23 以极具竞争力价格开启预售" },
+    excerpt: { en: "Chery's retro-styled iCAR V23 compact electric SUV enters pre-sale with pricing that undercuts most competitors in its segment.", zh: "奇瑞复古风格 iCAR V23 紧凑型电动 SUV 进入预售阶段，定价低于同级别大多数竞品。" },
+    date: "2025-05-10",
+  },
+  {
+    slug: "byd-seal-06gt-launched",
+    title: { en: "BYD Seal 06GT Officially Launched — Sporty Electric Crossover", zh: "比亚迪海豹 06GT 正式上市——运动纯电跨界车" },
+    excerpt: { en: "BYD expands the Seal lineup with the 06GT, a sporty electric crossover combining sedan dynamics with SUV practicality.", zh: "比亚迪以 06GT 车型扩展海豹产品线，这款运动纯电跨界车兼具轿车的操控与 SUV 的实用性。" },
+    date: "2025-05-05",
+  },
+  {
+    slug: "nio-export-expansion",
+    title: { en: "NIO Accelerates Global Expansion — New Markets in Europe and Middle East", zh: "蔚来加速全球扩张——进军欧洲和中东新市场" },
+    excerpt: { en: "NIO has announced plans to enter five new international markets this year, expanding its battery-swapping network globally.", zh: "蔚来宣布今年计划进入五个新的国际市场，同步扩展其全球换电网络。" },
+    date: "2025-04-28",
+  },
+];
+
+const title = isZh ? "行业新闻 — 后浪汽车" : "Industry News — Houlang Auto";
+const description = isZh
+  ? "中国新能源汽车行业最新动态和市场资讯。"
+  : "Latest updates and market news from China's NEV industry.";
+---
+
+<MainLayout {title} {description}>
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-bold">{isZh ? "行业新闻" : "Industry News"}</h1>
+      <p class="text-blue-200 mt-2">
+        {isZh ? "中国新能源汽车行业最新动态" : "Latest updates from China's NEV market"}
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {articles.map((a) => (
+          <a href={`/${lang}/news/${a.slug}/`} class="group">
+            <div class="aspect-[16/9] bg-gray-100 rounded-lg mb-4 overflow-hidden">
+              <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-sm">
+                {isZh ? "新闻图片" : "News Image"}
+              </div>
+            </div>
+            <p class="text-xs text-gray-400 mb-2">{a.date}</p>
+            <h2 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors mb-2">
+              {a.title[lang as keyof typeof a.title] || a.title.en}
+            </h2>
+            <p class="text-sm text-gray-500 line-clamp-2">
+              {a.excerpt[lang as keyof typeof a.excerpt] || a.excerpt.en}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>

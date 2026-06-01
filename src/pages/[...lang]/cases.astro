@@ -1,0 +1,94 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "zh" } },
+  ];
+}
+
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const isZh = lang === "zh";
+
+const cases = [
+  { country: "UAE", client: "Dubai EV Trading", vehicles: "BYD Han, BYD Song Plus", qty: 24, date: "2025-04" },
+  { country: "Brazil", client: "Rio Green Mobility", vehicles: "BYD Dolphin, BYD Seagull", qty: 50, date: "2025-03" },
+  { country: "Thailand", client: "Bangkok EV Hub", vehicles: "NIO ET5, Zeekr 001", qty: 18, date: "2025-02" },
+  { country: "Kazakhstan", client: "Astana Auto Import", vehicles: "Li Auto L6, BYD Seal", qty: 32, date: "2025-01" },
+  { country: "South Africa", client: "Joburg EV Solutions", vehicles: "Chery iCAR V23, BYD Seagull", qty: 40, date: "2024-12" },
+  { country: "Mexico", client: "CDMX Electric Motors", vehicles: "XPeng X9, Li Auto Mega", qty: 15, date: "2024-11" },
+  { country: "Saudi Arabia", client: "Riyadh Future Cars", vehicles: "Zeekr 009, Voyah Dreamer", qty: 20, date: "2024-10" },
+  { country: "Spain", client: "Madrid EV Import", vehicles: "BYD Han, Xiaomi SU7", qty: 28, date: "2024-09" },
+];
+
+const title = isZh ? "客户案例 — 后浪汽车" : "Case Studies — Houlang Auto";
+const description = isZh
+  ? "面向全球客户的成功交付案例，见证我们的专业服务。"
+  : "Successful deliveries to customers worldwide — see our professional service in action.";
+---
+
+<MainLayout {title} {description}>
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-bold">{isZh ? "客户案例" : "Case Studies"}</h1>
+      <p class="text-blue-200 mt-2">
+        {isZh ? "面向全球客户的成功交付" : "Successful deliveries to customers worldwide"}
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Stats banner -->
+      <div class="bg-primary text-white rounded-2xl p-8 mb-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {[
+          { num: "8+", label: isZh ? "覆盖国家" : "Countries" },
+          { num: "227", label: isZh ? "交付车辆" : "Vehicles Delivered" },
+          { num: "15+", label: isZh ? "合作客户" : "Clients" },
+          { num: "100%", label: isZh ? "客户满意度" : "Satisfaction" },
+        ].map((s) => (
+          <div><div class="text-3xl font-bold">{s.num}</div><div class="text-blue-200 text-sm mt-1">{s.label}</div></div>
+        ))}
+      </div>
+
+      <!-- Cases table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-200">
+              <th class="text-left py-3 px-4 font-semibold text-gray-900">{isZh ? "国家" : "Country"}</th>
+              <th class="text-left py-3 px-4 font-semibold text-gray-900">{isZh ? "客户" : "Client"}</th>
+              <th class="text-left py-3 px-4 font-semibold text-gray-900">{isZh ? "车型" : "Vehicles"}</th>
+              <th class="text-right py-3 px-4 font-semibold text-gray-900">{isZh ? "数量" : "Qty"}</th>
+              <th class="text-right py-3 px-4 font-semibold text-gray-900">{isZh ? "日期" : "Date"}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cases.map((c) => (
+              <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                <td class="py-3 px-4 font-medium text-gray-900">{c.country}</td>
+                <td class="py-3 px-4 text-gray-600">{c.client}</td>
+                <td class="py-3 px-4 text-gray-600">{c.vehicles}</td>
+                <td class="py-3 px-4 text-right text-gray-900 font-medium">{c.qty}</td>
+                <td class="py-3 px-4 text-right text-gray-400">{c.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-accent text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        {isZh ? "成为我们的下一个成功案例" : "Be Our Next Success Story"}
+      </h2>
+      <a href={`/${lang}/contact/`} class="inline-flex items-center px-8 py-3 bg-white text-accent hover:bg-gray-50 font-semibold rounded-lg transition-colors">
+        {isZh ? "立即联系我们" : "Contact Us Now"}
+      </a>
+    </div>
+  </section>
+</MainLayout>

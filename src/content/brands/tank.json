@@ -1,0 +1,13 @@
+{
+  "id": "tank",
+  "names": { "en": "Tank", "zh": "坦克" },
+  "slug": "tank",
+  "logo": "/images/brands/tank.png",
+  "country": "CN",
+  "description": {
+    "en": "Tank is Great Wall Motor's premium off-road SUV brand with rugged hybrid powertrains.",
+    "zh": "坦克是长城汽车旗下的高端越野SUV品牌，配备强悍的混动动力系统。"
+  },
+  "featured": false,
+  "order": 15
+}

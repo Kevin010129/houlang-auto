@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getCollection } from "astro:content";
+
+const lang = getLangFromUrl(Astro.url);
+const { t } = useTranslations(lang);
+
+const brands = await getCollection("brands");
+const featuredBrands = brands
+  .filter((b) => b.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="section bg-gray-warm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="section-heading">{t("home.browseByBrand")}</h2>
+    <p class="section-subheading">
+      {lang === "zh"
+        ? "覆盖中国主流新能源汽车品牌，一站式采购"
+        : "Covering all major Chinese NEV brands for one-stop sourcing"}
+    </p>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-6">
+      {featuredBrands.map((brand) => (
+        <a
+          href={`/${lang}/brands/${brand.data.slug}/`}
+          class="bg-white rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:shadow-md transition-all border border-gray-100 hover:border-gray-200 group"
+        >
+          <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-blue-50 transition-colors">
+            <span class="text-xs font-bold text-primary">
+              {brand.data.names[lang as keyof typeof brand.data.names] || brand.data.names.en}
+            </span>
+          </div>
+          <span class="text-xs text-gray-600 text-center font-medium">
+            {brand.data.names[lang as keyof typeof brand.data.names] || brand.data.names.en}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+{
+  "id": "voyah-dreamer",
+  "names": { "en": "Voyah Dreamer", "zh": "岚图梦想家" },
+  "slug": "voyah-dreamer",
+  "brand": "voyah",
+  "type": "MPV",
+  "fuelType": "plug_in_hybrid",
+  "priceRange": { "min": 369900, "max": 439900, "currency": "CNY" },
+  "images": ["/images/vehicles/voyah-dreamer.jpg"],
+  "specs": { "range_km": 82, "battery_kwh": 25.57, "power_kw": 290, "top_speed_kmh": 200, "seats": 7, "doors": 5 },
+  "featured": false,
+  "inStock": true,
+  "order": 12,
+  "description": {
+    "en": "Luxury plug-in hybrid MPV combining electric efficiency with the flexibility of a hybrid powertrain.",
+    "zh": "豪华插电混动 MPV，电动高效与混动灵活兼得。"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "byd-dolphin",
+  "names": { "en": "BYD Dolphin", "zh": "比亚迪海豚" },
+  "slug": "byd-dolphin",
+  "brand": "byd",
+  "type": "MINI",
+  "fuelType": "electric",
+  "priceRange": { "min": 116800, "max": 136800, "currency": "CNY" },
+  "images": ["/images/vehicles/byd-dolphin.jpg"],
+  "specs": { "range_km": 420, "battery_kwh": 44.9, "power_kw": 70, "top_speed_kmh": 150, "seats": 5, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 2,
+  "description": {
+    "en": "Stylish electric hatchback with marine-inspired design and advanced technology.",
+    "zh": "以海洋为灵感的时尚电动掀背车，搭载先进科技配置。"
+  }
+}

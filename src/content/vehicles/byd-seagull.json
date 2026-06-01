@@ -1,0 +1,18 @@
+{
+  "id": "byd-seagull",
+  "names": { "en": "BYD Seagull", "zh": "比亚迪海鸥" },
+  "slug": "byd-seagull",
+  "brand": "byd",
+  "type": "MINI",
+  "fuelType": "electric",
+  "priceRange": { "min": 73800, "max": 89800, "currency": "CNY" },
+  "images": ["/images/vehicles/byd-seagull.jpg"],
+  "specs": { "range_km": 405, "battery_kwh": 38.88, "power_kw": 55, "top_speed_kmh": 130, "seats": 5, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 1,
+  "description": {
+    "en": "Compact electric city car with impressive range and excellent value for money.",
+    "zh": "紧凑型电动城市车，续航出色，性价比极高。"
+  }
+}

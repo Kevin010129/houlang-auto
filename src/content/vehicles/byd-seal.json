@@ -1,0 +1,18 @@
+{
+  "id": "byd-seal",
+  "names": { "en": "BYD Seal", "zh": "比亚迪海豹" },
+  "slug": "byd-seal",
+  "brand": "byd",
+  "type": "SEDAN",
+  "fuelType": "electric",
+  "priceRange": { "min": 179800, "max": 249800, "currency": "CNY" },
+  "images": ["/images/vehicles/byd-seal.jpg"],
+  "specs": { "range_km": 550, "battery_kwh": 61.4, "power_kw": 150, "top_speed_kmh": 180, "seats": 5, "doors": 4 },
+  "featured": false,
+  "inStock": true,
+  "order": 13,
+  "description": {
+    "en": "Sleek mid-size electric sedan with ocean-inspired design and impressive handling dynamics.",
+    "zh": "流畅的中型纯电轿车，海洋灵感设计，操控表现令人印象深刻。"
+  }
+}

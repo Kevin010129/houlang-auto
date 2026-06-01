@@ -1,0 +1,18 @@
+{
+  "id": "li-auto-l6",
+  "names": { "en": "Li Auto L6", "zh": "理想 L6" },
+  "slug": "li-auto-l6",
+  "brand": "li_auto",
+  "type": "SUV",
+  "fuelType": "extended_range",
+  "priceRange": { "min": 249800, "max": 289800, "currency": "CNY" },
+  "images": ["/images/vehicles/li-auto-l6.jpg"],
+  "specs": { "range_km": 212, "battery_kwh": 36.8, "power_kw": 300, "top_speed_kmh": 180, "seats": 5, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 7,
+  "description": {
+    "en": "Extended-range family SUV combining electric driving with a range extender for worry-free long trips.",
+    "zh": "增程式家用 SUV，电动驾驶与增程器结合，长途出行无忧。"
+  }
+}

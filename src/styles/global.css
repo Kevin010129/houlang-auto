@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e3a5f;
+  --color-primary-dark: #0f2340;
+  --color-primary-light: #2d5a8e;
+  --color-accent: #e63946;
+  --color-accent-hover: #c1121f;
+  --color-gray-warm: #f5f3f0;
+  --color-gray-cool: #f0f2f5;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #1a1a1a;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+/* Section spacing */
+.section {
+  @apply py-16 md:py-24;
+}
+
+.section-heading {
+  @apply text-3xl md:text-4xl font-bold text-center mb-4;
+}
+
+.section-subheading {
+  @apply text-gray-500 text-center max-w-2xl mx-auto mb-12;
+}

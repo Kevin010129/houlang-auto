@@ -1,0 +1,13 @@
+{
+  "id": "leapmotor",
+  "names": { "en": "Leapmotor", "zh": "零跑" },
+  "slug": "leapmotor",
+  "logo": "/images/brands/leapmotor.png",
+  "country": "CN",
+  "description": {
+    "en": "Leapmotor offers affordable EVs with strong value for money, part of the Stellantis group.",
+    "zh": "零跑提供高性价比的电动汽车，现已加入 Stellantis 集团。"
+  },
+  "featured": false,
+  "order": 12
+}

@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "service": "Service",
+    "cases": "Case Studies",
+    "news": "Industry News",
+    "contact": "Contact Us",
+    "partner": "Join Our Network"
+  },
+  "home": {
+    "heroTitle": "Your Trusted Partner for Chinese NEV Export",
+    "heroSubtitle": "Honest Pricing, No Hidden Fees",
+    "heroTagline": "— It's Our Commitment",
+    "heroCta": "Explore Vehicles",
+    "featuredVehicles": "Featured Vehicles",
+    "browseByType": "Browse by Type",
+    "browseByBrand": "Popular Brands",
+    "viewMore": "Discover More",
+    "viewAll": "View All",
+    "whyUs": "Why Choose Us",
+    "process": "Our Process",
+    "gallery": "Exhibition & Customer Gallery",
+    "latestNews": "Latest Industry News",
+    "contactUs": "Get in Touch"
+  },
+  "why": {
+    "title": "Love and Care Set Us Apart",
+    "pricing": {
+      "title": "Transparent Pricing",
+      "desc": "Fixed service fee of $500 USD — no hidden fees, no surprises."
+    },
+    "logistics": {
+      "title": "Transparent Logistics",
+      "desc": "Real-time shipment tracking from our warehouse to your destination."
+    },
+    "quality": {
+      "title": "Quality Delivery",
+      "desc": "Every vehicle undergoes rigorous inspection before shipment. Delivered in perfect condition."
+    },
+    "support": {
+      "title": "Hassle-Free Support",
+      "desc": "Responsive after-sales support team ready to resolve any issues quickly."
+    }
+  },
+  "process": {
+    "heading": "How We Work — 7 Simple Steps",
+    "step1": "Initial Contact",
+    "step1desc": "Express your interest and schedule a meeting to understand your needs.",
+    "step2": "Requirement Confirmation",
+    "step2desc": "Confirm specifics like brand, model, budget, and timeline.",
+    "step3": "Contract Signing",
+    "step3desc": "Sign the agreement, specify terms, and make the initial payment.",
+    "step4": "Vehicle Procurement",
+    "step4desc": "Our team handles procurement and shares VIN and inspection videos.",
+    "step5": "Vehicle Delivery",
+    "step5desc": "Final payment confirmed, we arrange safe and timely delivery.",
+    "step6": "Collaboration Evaluation",
+    "step6desc": "We collect your feedback to continuously improve our service.",
+    "step7": "Ongoing Support",
+    "step7desc": "Continuous after-sales assistance for your peace of mind."
+  },
+  "product": {
+    "filterByBrand": "Filter by Brand",
+    "filterByType": "Filter by Type",
+    "filterByFuel": "Filter by Fuel Type",
+    "allBrands": "All Brands",
+    "allTypes": "All Types",
+    "allFuel": "All Fuel Types",
+    "inStock": "In Stock",
+    "inquiryNow": "Inquiry Now",
+    "specs": "Specifications",
+    "range": "Range",
+    "battery": "Battery",
+    "power": "Power",
+    "topSpeed": "Top Speed",
+    "seats": "Seats",
+    "price": "Price Range",
+    "noResults": "No vehicles match your filters."
+  },
+  "filter": {
+    "sedan": "SEDAN",
+    "suv": "SUV",
+    "mpv": "MPV",
+    "mini": "MINI",
+    "electric": "Electric",
+    "phev": "Plug-in Hybrid",
+    "erev": "Extended Range",
+    "petrol": "Petrol"
+  },
+  "contact": {
+    "heading": "Send Us a Message",
+    "subheading": "We'll get back to you within 24 hours.",
+    "name": "Your Name",
+    "email": "Email Address",
+    "phone": "Phone / WhatsApp",
+    "message": "Your Message",
+    "send": "Send Message",
+    "success": "Message sent successfully! We'll be in touch soon.",
+    "error": "Please check the form and try again.",
+    "address": "Changzhou, Jiangsu, China",
+    "phone_number": "+86-XXX-XXXX-XXXX",
+    "email_address": "info@houlangauto.com"
+  },
+  "about": {
+    "heading": "About Houlang Auto",
+    "subheading": "Your trusted partner for Chinese new energy vehicle export",
+    "mission": "Our Mission",
+    "mission_text": "To connect global customers with China's finest new energy vehicles through transparent, reliable, and professional export services.",
+    "vision": "Our Vision",
+    "vision_text": "To become the most trusted bridge between Chinese NEV manufacturers and international markets.",
+    "team": "Our Team",
+    "team_text": "We are a team of automotive industry veterans with deep expertise in vehicle sourcing, quality inspection, international logistics, and after-sales support."
+  },
+  "partner": {
+    "heading": "Join Our Global Network",
+    "subheading": "Become an authorized Houlang Auto partner in your region",
+    "benefits": "Partner Benefits",
+    "benefit1": "Access to 30+ Chinese NEV brands at factory-direct pricing",
+    "benefit2": "Dedicated account manager and priority support",
+    "benefit3": "Marketing materials and local promotion support",
+    "benefit4": "Competitive margins and volume-based incentives",
+    "form_heading": "Apply for Partnership",
+    "company": "Company Name",
+    "country": "Country",
+    "website": "Website (optional)"
+  },
+  "service": {
+    "heading": "Our Services",
+    "subheading": "End-to-end vehicle export solutions",
+    "sourcing": {
+      "title": "Vehicle Sourcing",
+      "desc": "Access to 30+ Chinese NEV brands. We find the right vehicles at the best prices."
+    },
+    "inspection": {
+      "title": "Quality Inspection",
+      "desc": "Rigorous pre-delivery inspection including exterior, interior, mechanical, and electronic checks."
+    },
+    "logistics": {
+      "title": "International Logistics",
+      "desc": "Door-to-door shipping via RORO, container, or rail. Real-time tracking available."
+    },
+    "customs": {
+      "title": "Customs Clearance",
+      "desc": "Complete export documentation and customs handling for smooth border crossing."
+    },
+    "aftersales": {
+      "title": "After-Sales Support",
+      "desc": "Warranty claims, spare parts sourcing, and technical support after delivery."
+    }
+  },
+  "cases": {
+    "heading": "Case Studies",
+    "subheading": "Successful deliveries to customers worldwide"
+  },
+  "news": {
+    "heading": "Industry News",
+    "subheading": "Latest updates from China's NEV market",
+    "readMore": "Read More",
+    "publishedOn": "Published on"
+  },
+  "footer": {
+    "brands": "Popular Brands",
+    "types": "Vehicle Types",
+    "fuel": "Fuel Types",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Info",
+    "copyright": "© 2025 Changzhou Houlang New Energy Vehicle Import & Export Co., Ltd. All rights reserved.",
+    "address_line1": "Changzhou, Jiangsu, China",
+    "requestInfo": "Request Information"
+  }
+}

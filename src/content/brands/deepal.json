@@ -1,0 +1,13 @@
+{
+  "id": "deepal",
+  "names": { "en": "Deepal", "zh": "深蓝" },
+  "slug": "deepal",
+  "logo": "/images/brands/deepal.png",
+  "country": "CN",
+  "description": {
+    "en": "Deepal is Changan's new energy brand offering stylish EVs and extended-range vehicles.",
+    "zh": "深蓝是长安汽车旗下的新能源品牌，提供时尚的纯电和增程式车型。"
+  },
+  "featured": false,
+  "order": 13
+}

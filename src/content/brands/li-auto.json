@@ -1,0 +1,13 @@
+{
+  "id": "li_auto",
+  "names": { "en": "Li Auto", "zh": "理想" },
+  "slug": "li-auto",
+  "logo": "/images/brands/li-auto.png",
+  "country": "CN",
+  "description": {
+    "en": "Li Auto specializes in extended-range electric SUVs and MPVs for family use.",
+    "zh": "理想汽车专注于面向家庭使用的增程式电动 SUV 和 MPV。"
+  },
+  "featured": true,
+  "order": 4
+}

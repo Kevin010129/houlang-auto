@@ -1,0 +1,13 @@
+{
+  "id": "voyah",
+  "names": { "en": "Voyah", "zh": "岚图" },
+  "slug": "voyah",
+  "logo": "/images/brands/voyah.png",
+  "country": "CN",
+  "description": {
+    "en": "Voyah is Dongfeng's premium new energy brand, producing high-end SUVs and MPVs.",
+    "zh": "岚图是东风汽车旗下的高端新能源品牌，生产高端 SUV 和 MPV。"
+  },
+  "featured": false,
+  "order": 14
+}

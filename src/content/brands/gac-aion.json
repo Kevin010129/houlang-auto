@@ -1,0 +1,13 @@
+{
+  "id": "gac_aion",
+  "names": { "en": "GAC Aion", "zh": "广汽埃安" },
+  "slug": "gac-aion",
+  "logo": "/images/brands/gac-aion.png",
+  "country": "CN",
+  "description": {
+    "en": "GAC Aion is a fast-growing EV brand under GAC Group with strong domestic sales.",
+    "zh": "广汽埃安是广汽集团旗下快速增长的电动汽车品牌，国内销量强劲。"
+  },
+  "featured": false,
+  "order": 10
+}

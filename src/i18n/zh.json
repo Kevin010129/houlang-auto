@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品中心",
+    "service": "服务保障",
+    "cases": "客户案例",
+    "news": "行业新闻",
+    "contact": "联系我们",
+    "partner": "加盟合作"
+  },
+  "home": {
+    "heroTitle": "中国新能源汽车出口值得信赖的伙伴",
+    "heroSubtitle": "诚信定价，无隐藏费用",
+    "heroTagline": "—— 这是我们的承诺",
+    "heroCta": "浏览车型",
+    "featuredVehicles": "精选车型",
+    "browseByType": "按类型浏览",
+    "browseByBrand": "热门品牌",
+    "viewMore": "了解更多",
+    "viewAll": "查看全部",
+    "whyUs": "为什么选择我们",
+    "process": "购车流程",
+    "gallery": "展会与客户案例",
+    "latestNews": "最新行业新闻",
+    "contactUs": "联系我们"
+  },
+  "why": {
+    "title": "用心服务，与众不同",
+    "pricing": {
+      "title": "透明定价",
+      "desc": "固定服务费 500 美元——无隐藏费用，无隐形消费。"
+    },
+    "logistics": {
+      "title": "物流透明",
+      "desc": "从我们的仓库到您的目的地，实时追踪每一步物流状态。"
+    },
+    "quality": {
+      "title": "品质交付",
+      "desc": "每辆车在发运前都经过严格检测，确保完美状态交付。"
+    },
+    "support": {
+      "title": "无忧售后",
+      "desc": "专业售后团队快速响应，及时解决您遇到的任何问题。"
+    }
+  },
+  "process": {
+    "heading": "购车七步流程",
+    "step1": "初步沟通",
+    "step1desc": "表达您的需求意向，我们安排会议深入了解您的采购计划。",
+    "step2": "需求确认",
+    "step2desc": "确认品牌、车型、预算、交期等具体需求，提供可选方案。",
+    "step3": "签订合同",
+    "step3desc": "签署协议，明确条款细则，支付首期款项。",
+    "step4": "车辆采购",
+    "step4desc": "团队负责采购车辆，同步提供 VIN 码和检测视频。",
+    "step5": "车辆交付",
+    "step5desc": "确认尾款后，安排安全及时的国际物流配送。",
+    "step6": "合作评估",
+    "step6desc": "收集您的反馈意见，持续优化我们的服务质量。",
+    "step7": "持续支持",
+    "step7desc": "提供持续的售后协助，让您无后顾之忧。"
+  },
+  "product": {
+    "filterByBrand": "按品牌筛选",
+    "filterByType": "按类型筛选",
+    "filterByFuel": "按燃料类型筛选",
+    "allBrands": "全部品牌",
+    "allTypes": "全部类型",
+    "allFuel": "全部燃料",
+    "inStock": "现货",
+    "inquiryNow": "立即咨询",
+    "specs": "规格参数",
+    "range": "续航里程",
+    "battery": "电池容量",
+    "power": "功率",
+    "topSpeed": "最高时速",
+    "seats": "座位数",
+    "price": "价格区间",
+    "noResults": "未找到匹配的车型，请调整筛选条件。"
+  },
+  "filter": {
+    "sedan": "轿车",
+    "suv": "SUV",
+    "mpv": "MPV",
+    "mini": "微型",
+    "electric": "纯电动",
+    "phev": "插电混动",
+    "erev": "增程式",
+    "petrol": "燃油"
+  },
+  "contact": {
+    "heading": "发送留言",
+    "subheading": "我们将在 24 小时内与您联系。",
+    "name": "您的姓名",
+    "email": "邮箱地址",
+    "phone": "电话 / WhatsApp",
+    "message": "您的留言",
+    "send": "发送消息",
+    "success": "消息发送成功！我们会尽快与您联系。",
+    "error": "请检查表单后重试。",
+    "address": "中国江苏省常州市",
+    "phone_number": "+86-XXX-XXXX-XXXX",
+    "email_address": "info@houlangauto.com"
+  },
+  "about": {
+    "heading": "关于后浪汽车",
+    "subheading": "您值得信赖的中国新能源汽车出口伙伴",
+    "mission": "我们的使命",
+    "mission_text": "通过透明、可靠、专业的出口服务，将全球客户与中国最优秀的新能源汽车连接起来。",
+    "vision": "我们的愿景",
+    "vision_text": "成为中国新能源汽车制造商与国际市场之间最值得信赖的桥梁。",
+    "team": "我们的团队",
+    "team_text": "我们是一支由汽车行业资深人士组成的团队，在车辆采购、质量检测、国际物流和售后支持方面拥有深厚的专业知识。"
+  },
+  "partner": {
+    "heading": "加入全球合作伙伴网络",
+    "subheading": "成为您所在地区的后浪汽车授权合作伙伴",
+    "benefits": "合作伙伴权益",
+    "benefit1": "30+ 中国新能源汽车品牌的工厂直采价格",
+    "benefit2": "专属客户经理和优先支持",
+    "benefit3": "营销材料和本地推广支持",
+    "benefit4": "具有竞争力的利润空间和销量激励",
+    "form_heading": "申请成为合作伙伴",
+    "company": "公司名称",
+    "country": "国家/地区",
+    "website": "公司网站（选填）"
+  },
+  "service": {
+    "heading": "我们的服务",
+    "subheading": "一站式车辆出口解决方案",
+    "sourcing": {
+      "title": "车辆采购",
+      "desc": "覆盖 30+ 中国新能源汽车品牌，为您找到最合适的车型和最优的价格。"
+    },
+    "inspection": {
+      "title": "质量检测",
+      "desc": "严格的发运前检测，包括外观、内饰、机械和电子系统全方位检查。"
+    },
+    "logistics": {
+      "title": "国际物流",
+      "desc": "滚装船、集装箱或铁路的门到门运输服务，支持实时追踪。"
+    },
+    "customs": {
+      "title": "清关服务",
+      "desc": "完整的出口文件和报关处理，确保顺利通关。"
+    },
+    "aftersales": {
+      "title": "售后支持",
+      "desc": "交付后的质保理赔、配件采购和技术支持服务。"
+    }
+  },
+  "cases": {
+    "heading": "客户案例",
+    "subheading": "面向全球客户的成功交付案例"
+  },
+  "news": {
+    "heading": "行业新闻",
+    "subheading": "中国新能源汽车市场最新动态",
+    "readMore": "阅读更多",
+    "publishedOn": "发布于"
+  },
+  "footer": {
+    "brands": "热门品牌",
+    "types": "车型类别",
+    "fuel": "燃料类型",
+    "quickLinks": "快速链接",
+    "contact": "联系方式",
+    "copyright": "© 2025 常州后浪新能源汽车进出口有限公司 版权所有。",
+    "address_line1": "中国江苏省常州市",
+    "requestInfo": "立即咨询"
+  }
+}

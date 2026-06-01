@@ -1,0 +1,104 @@
+---
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "zh" } },
+  ];
+}
+
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const isZh = lang === "zh";
+
+const services = [
+  {
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+    title: isZh ? "车辆采购" : "Vehicle Sourcing",
+    desc: isZh
+      ? "覆盖 30+ 中国新能源汽车品牌的工厂直采渠道。我们为您找到最合适的车型和最优的价格，提供专业的采购建议和方案。"
+      : "Direct factory procurement channels covering 30+ Chinese NEV brands. We find the right vehicles at the best prices with professional sourcing advice.",
+  },
+  {
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+    title: isZh ? "质量检测" : "Quality Inspection",
+    desc: isZh
+      ? "严格的发运前全面检测，包括外观、内饰、机械和电子系统检查。每辆车都提供详细的检测报告和VIN码视频。"
+      : "Rigorous pre-delivery comprehensive inspection covering exterior, interior, mechanical, and electronic systems. Detailed inspection report and VIN video provided for every vehicle.",
+  },
+  {
+    icon: "M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z",
+    title: isZh ? "国际物流" : "International Logistics",
+    desc: isZh
+      ? "提供滚装船、集装箱和铁路等多种运输方式的门到门服务。实时追踪物流状态，确保车辆安全准时到达目的地。"
+      : "Door-to-door service via RORO vessel, container, and rail. Real-time shipment tracking ensures vehicles arrive safely and on time at their destination.",
+  },
+  {
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
+    title: isZh ? "清关服务" : "Customs Clearance",
+    desc: isZh
+      ? "提供完整的出口报关文件，协助办理所有海关手续。确保顺利、合规地完成每一笔出口业务。"
+      : "Complete export documentation and customs handling assistance. We ensure every export transaction is completed smoothly and compliantly.",
+  },
+  {
+    icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    title: isZh ? "售后支持" : "After-Sales Support",
+    desc: isZh
+      ? "交付后的持续协助，包括质保理赔、配件采购和技术支持。我们确保您在整个用车周期中无忧无虑。"
+      : "Continuous post-delivery assistance including warranty claims, spare parts sourcing, and technical support. We ensure peace of mind throughout the vehicle ownership cycle.",
+  },
+];
+
+const title = isZh ? "服务保障 — 后浪汽车" : "Service — Houlang Auto";
+const description = isZh
+  ? "一站式新能源汽车出口服务，涵盖采购、检测、物流、清关和售后。"
+  : "One-stop NEV export service covering sourcing, inspection, logistics, customs, and after-sales.";
+---
+
+<MainLayout {title} {description}>
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-4xl font-bold">{isZh ? "服务保障" : "Our Services"}</h1>
+      <p class="text-blue-200 mt-2">
+        {isZh ? "一站式车辆出口解决方案" : "End-to-end vehicle export solutions"}
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((s) => (
+          <div class="group p-6 rounded-xl border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all">
+            <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={s.icon}/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-accent text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        {isZh ? "准备好开始合作了吗？" : "Ready to Start?"}
+      </h2>
+      <p class="text-red-100 mb-8">
+        {isZh ? "联系我们，获取专属采购方案和报价。" : "Contact us for a tailored sourcing proposal and quotation."}
+      </p>
+      <a
+        href={`/${lang}/contact/`}
+        class="inline-flex items-center px-8 py-3 bg-white text-accent hover:bg-gray-50 font-semibold rounded-lg transition-colors"
+      >
+        {isZh ? "联系我们" : "Contact Us"}
+      </a>
+    </div>
+  </section>
+</MainLayout>

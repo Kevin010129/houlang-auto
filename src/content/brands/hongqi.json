@@ -1,0 +1,13 @@
+{
+  "id": "hongqi",
+  "names": { "en": "Hongqi", "zh": "红旗" },
+  "slug": "hongqi",
+  "logo": "/images/brands/hongqi.png",
+  "country": "CN",
+  "description": {
+    "en": "Hongqi is China's luxury car brand, producing premium sedans and SUVs.",
+    "zh": "红旗是中国的豪华汽车品牌，生产高端轿车和SUV。"
+  },
+  "featured": false,
+  "order": 11
+}

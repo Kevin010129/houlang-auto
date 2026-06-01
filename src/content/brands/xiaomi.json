@@ -1,0 +1,13 @@
+{
+  "id": "xiaomi",
+  "names": { "en": "Xiaomi", "zh": "小米" },
+  "slug": "xiaomi",
+  "logo": "/images/brands/xiaomi.png",
+  "country": "CN",
+  "description": {
+    "en": "Xiaomi Auto, the EV division of tech giant Xiaomi, launched the SU7 to massive market success.",
+    "zh": "小米汽车是科技巨头小米的电动汽车事业部，SU7 车型上市即获得巨大的市场成功。"
+  },
+  "featured": true,
+  "order": 3
+}

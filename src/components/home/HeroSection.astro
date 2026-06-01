@@ -1,0 +1,57 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const { t } = useTranslations(lang);
+---
+
+<section class="relative bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-10 right-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+        {t("home.heroTitle")}
+      </h1>
+      <p class="text-xl md:text-2xl text-blue-100 mb-3 font-medium">
+        {t("home.heroSubtitle")}
+      </p>
+      <p class="text-lg text-blue-200 mb-8">
+        {t("home.heroTagline")}
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href={`/${lang}/products/`}
+          class="inline-flex items-center px-6 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg transition-colors text-lg"
+        >
+          {t("home.heroCta")}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a
+          href={`/${lang}/about/`}
+          class="inline-flex items-center px-6 py-3 border-2 border-white/30 hover:border-white/60 text-white font-semibold rounded-lg transition-colors text-lg"
+        >
+          {t("nav.about")}
+        </a>
+      </div>
+    </div>
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+      {[
+        { num: "30+", label: lang === "zh" ? "合作品牌" : "Brands" },
+        { num: "200+", label: lang === "zh" ? "出口车型" : "Models" },
+        { num: "50+", label: lang === "zh" ? "出口国家" : "Countries" },
+        { num: "1000+", label: lang === "zh" ? "满意客户" : "Happy Clients" },
+      ].map((stat) => (
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-white">{stat.num}</div>
+          <div class="text-blue-200 text-sm mt-1">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

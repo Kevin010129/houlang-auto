@@ -1,0 +1,79 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const brands = await getCollection("brands");
+  return brands.flatMap((b) => [
+    { params: { lang: "en", brand: b.data.slug } },
+    { params: { lang: "zh", brand: b.data.slug } },
+  ]);
+}
+
+const { brand: brandSlug } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const { t } = useTranslations(lang);
+
+const brands = await getCollection("brands");
+const brand = brands.find((b) => b.data.slug === brandSlug);
+if (!brand) return Astro.redirect(`/${lang}/products/`);
+
+const vehicles = await getCollection("vehicles");
+const brandVehicles = vehicles
+  .filter((v) => v.data.brand === brand.data.id)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const brandName = brand.data.names[lang as keyof typeof brand.data.names] || brand.data.names.en;
+---
+
+<MainLayout title={`${brandName} — Houlang Auto`} description={brand.data.description[lang as keyof typeof brand.data.description]}>
+  <section class="bg-primary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4">
+        <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center text-2xl font-bold">
+          {brandName}
+        </div>
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold">{brandName}</h1>
+          <p class="text-blue-200 mt-2">{brand.data.description[lang as keyof typeof brand.data.description]}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-semibold mb-6">
+        {lang === "zh" ? `${brandName} 车型列表` : `${brandName} Vehicles`}
+        <span class="text-gray-400 font-normal text-lg ml-2">({brandVehicles.length})</span>
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        {brandVehicles.map((vehicle) => {
+          const v = vehicle.data;
+          const name = v.names[lang as keyof typeof v.names] || v.names.en;
+          return (
+            <a
+              href={`/${lang}/products/${v.slug}/`}
+              class="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all"
+            >
+              <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center overflow-hidden">
+                {v.images[0] ? (
+                  <img src={v.images[0]} alt={name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                ) : (
+                  <span class="text-gray-400 text-sm">{name}</span>
+                )}
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors">{name}</h3>
+                <p class="text-xs text-accent font-medium mt-2">
+                  ¥{v.priceRange.min.toLocaleString()} - ¥{v.priceRange.max.toLocaleString()}
+                </p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</MainLayout>

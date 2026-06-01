@@ -1,0 +1,96 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro";
+import { getLangFromUrl } from "../../../i18n/utils";
+
+export async function getStaticPaths() {
+  const slugs = [
+    "xiaomi-su7-ultra-production",
+    "zeekr-mix-launched",
+    "chery-icar-v23-presale",
+    "byd-seal-06gt-launched",
+    "nio-export-expansion",
+  ];
+  return slugs.flatMap((s) => [
+    { params: { lang: "en", slug: s } },
+    { params: { lang: "zh", slug: s } },
+  ]);
+}
+
+const { slug } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const isZh = lang === "zh";
+
+const articles: Record<string, any> = {
+  "xiaomi-su7-ultra-production": {
+    title: { en: "Xiaomi SU7 Ultra — Production Version Real Shots Revealed", zh: "小米 SU7 Ultra 量产版实拍图曝光" },
+    date: "2025-05-20",
+    content: {
+      en: "The mass production version of the highly anticipated Xiaomi SU7 Ultra has been spotted during road testing in China. The Ultra variant features more aggressive aerodynamics, a larger rear wing, sport-tuned suspension, and upgraded brakes compared to the standard SU7. Industry insiders expect it to deliver over 1,000 horsepower from its tri-motor setup, targeting the high-performance EV segment currently dominated by the Porsche Taycan and Tesla Model S Plaid. Pricing is expected to start around ¥500,000 CNY.",
+      zh: "备受期待的小米 SU7 Ultra 量产版已在中国路试中被发现。Ultra 版本相比标准 SU7 拥有更激进的空气动力学套件、更大尺寸的后扰流板、运动调校悬挂和升级制动系统。业内人士预计其三电机系统可输出超过 1000 匹马力，目标直指目前由保时捷 Taycan 和特斯拉 Model S Plaid 主导的高性能电动车细分市场。预计起售价约为 50 万元人民币。",
+    },
+  },
+  "zeekr-mix-launched": {
+    title: { en: "Zeekr MIX Officially Launched — A New Era for Family MPVs", zh: "极氪 MIX 正式上市——开启家用 MPV 新纪元" },
+    date: "2025-05-15",
+    content: {
+      en: "Zeekr has officially launched the MIX, a revolutionary family MPV that breaks away from traditional boxy designs. The MIX features a unique capsule-style exterior with sliding doors on both sides and a versatile interior that can be configured for various scenarios — from a mobile office to a family lounge. Built on Zeekr's SEA platform, the MIX offers both pure electric and extended-range powertrain options with a range of up to 700km. The starting price is ¥279,900 CNY, positioning it competitively in the premium family vehicle market.",
+      zh: "极氪正式推出 MIX 车型，这款革命性的家用 MPV 打破了传统的方正造型。MIX 采用独特的胶囊式外观设计，双侧滑门，内部空间灵活多变，可从移动办公室切换为家庭休闲空间。基于极氪 SEA 架构打造，MIX 提供纯电和增程两种动力选择，续航最高可达 700 公里。起售价为 27.99 万元人民币，在高端家用车市场中具有极强竞争力。",
+    },
+  },
+  "chery-icar-v23-presale": {
+    title: { en: "Chery iCAR V23 Starts Pre-sale at Competitive Price", zh: "奇瑞 iCAR V23 以极具竞争力价格开启预售" },
+    date: "2025-05-10",
+    content: {
+      en: "Chery's iCAR brand has started pre-sales for the V23 compact electric SUV with pricing ranging from ¥109,800 to ¥149,800 CNY. The V23 features a distinctive retro-inspired design with round headlights and boxy proportions reminiscent of classic off-roaders. Despite its rugged looks, the V23 is positioned as an urban EV with a range of 401km and modern features including a large central touchscreen, L2+ driving assistance, and over-the-air update capability. Early pre-sale numbers have exceeded expectations, with over 10,000 orders placed in the first week.",
+      zh: "奇瑞 iCAR 品牌已开启 V23 紧凑型电动 SUV 预售，价格区间为 10.98 万至 14.98 万元人民币。V23 采用独特的复古风格设计，圆形大灯和方正车身比例让人联想到经典越野车。尽管外观硬朗，V23 定位为城市电动车，续航里程 401 公里，配备大尺寸中控屏、L2+ 级驾驶辅助和 OTA 升级等现代化功能。预售首周订单突破 10,000 台，远超预期。",
+    },
+  },
+  "byd-seal-06gt-launched": {
+    title: { en: "BYD Seal 06GT Officially Launched", zh: "比亚迪海豹 06GT 正式上市" },
+    date: "2025-05-05",
+    content: {
+      en: "BYD has officially launched the Seal 06GT, a sporty electric crossover that expands the popular Seal lineup. The 06GT combines the dynamic driving characteristics of the Seal sedan with the practicality of a crossover body style. It features BYD's latest Blade Battery technology with a range of 550km and supports 800V fast charging that can charge from 30% to 80% in just 25 minutes. The Seal 06GT is priced between ¥179,800 and ¥249,800 CNY, targeting young families seeking a stylish yet practical EV.",
+      zh: "比亚迪正式推出海豹 06GT，这款运动纯电跨界车扩展了备受欢迎的海豹产品线。06GT 融合了海豹轿车的动态驾驶特性与跨界车的实用性。搭载比亚迪最新刀片电池技术，续航里程 550 公里，支持 800V 快充，30% 充至 80% 仅需 25 分钟。海豹 06GT 售价区间为 17.98 万至 24.98 万元人民币，面向追求时尚与实用兼具的年轻家庭用户。",
+    },
+  },
+  "nio-export-expansion": {
+    title: { en: "NIO Accelerates Global Expansion", zh: "蔚来加速全球扩张" },
+    date: "2025-04-28",
+    content: {
+      en: "NIO has announced ambitious plans to enter five new international markets by the end of 2025, including the UAE, Saudi Arabia, Brazil, Mexico, and Thailand. The company will introduce its full lineup including the ET5, ET7, ES6, and ES8, along with its signature battery-swapping stations. NIO's CEO confirmed that the company has already established local partnerships in these markets and will begin deliveries in Q3 2025. This expansion marks a significant acceleration in NIO's globalization strategy, bringing its premium EV experience to customers across the Middle East, Latin America, and Southeast Asia.",
+      zh: "蔚来宣布了雄心勃勃的计划，将在 2025 年底前进入五个新的国际市场，包括阿联酋、沙特阿拉伯、巴西、墨西哥和泰国。公司将引入包括 ET5、ET7、ES6 和 ES8 在内的全系产品，以及其标志性的换电站。蔚来 CEO 确认公司已在上述市场建立本地合作伙伴关系，并将于 2025 年第三季度开始交付。此次扩张标志着蔚来全球化战略的重大加速，将高端电动车体验带给中东、拉美和东南亚的客户。",
+    },
+  },
+};
+
+const article = articles[slug!] || Object.values(articles)[0];
+const title = article.title[lang as keyof typeof article.title] || article.title.en;
+---
+
+<MainLayout title={`${title} — Houlang Auto`} description={article.content[lang as keyof typeof article.content]?.slice(0, 160)}>
+  <article class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-gray-400 mb-8">
+        <a href={`/${lang}/`} class="hover:text-primary">{isZh ? "首页" : "Home"}</a>
+        <span class="mx-2">/</span>
+        <a href={`/${lang}/news/`} class="hover:text-primary">{isZh ? "行业新闻" : "Industry News"}</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-600">{title}</span>
+      </nav>
+      <p class="text-sm text-gray-400 mb-4">{article.date}</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">{title}</h1>
+      <div class="aspect-[16/9] bg-gray-100 rounded-xl mb-8 flex items-center justify-center text-gray-400">
+        {isZh ? "新闻图片" : "News Image"}
+      </div>
+      <div class="prose prose-gray max-w-none text-gray-600 leading-relaxed text-lg">
+        <p>{article.content[lang as keyof typeof article.content]}</p>
+      </div>
+      <div class="mt-12 pt-8 border-t border-gray-100">
+        <a href={`/${lang}/news/`} class="text-primary hover:text-primary-light font-medium inline-flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          {isZh ? "返回新闻列表" : "Back to News"}
+        </a>
+      </div>
+    </div>
+  </article>
+</MainLayout>

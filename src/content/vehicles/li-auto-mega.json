@@ -1,0 +1,18 @@
+{
+  "id": "li-auto-mega",
+  "names": { "en": "Li Auto Mega", "zh": "理想 MEGA" },
+  "slug": "li-auto-mega",
+  "brand": "li_auto",
+  "type": "MPV",
+  "fuelType": "electric",
+  "priceRange": { "min": 529800, "max": 529800, "currency": "CNY" },
+  "images": ["/images/vehicles/li-auto-mega.jpg"],
+  "specs": { "range_km": 710, "battery_kwh": 102.7, "power_kw": 400, "top_speed_kmh": 180, "seats": 7, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 9,
+  "description": {
+    "en": "Flagship electric MPV with ultra-fast 5C charging and aerodynamic bullet-train-inspired design.",
+    "zh": "旗舰纯电 MPV，支持 5C 超快充，空气动力学子弹头列车灵感设计。"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "chery",
+  "names": { "en": "Chery", "zh": "奇瑞" },
+  "slug": "chery",
+  "logo": "/images/brands/chery.png",
+  "country": "CN",
+  "description": {
+    "en": "Chery is China's largest passenger vehicle exporter with strong global presence.",
+    "zh": "奇瑞是中国最大的乘用车出口商，在全球市场拥有强大的影响力。"
+  },
+  "featured": false,
+  "order": 9
+}

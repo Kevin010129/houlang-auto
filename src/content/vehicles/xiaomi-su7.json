@@ -1,0 +1,18 @@
+{
+  "id": "xiaomi-su7",
+  "names": { "en": "Xiaomi SU7", "zh": "小米 SU7" },
+  "slug": "xiaomi-su7",
+  "brand": "xiaomi",
+  "type": "SEDAN",
+  "fuelType": "electric",
+  "priceRange": { "min": 215900, "max": 299900, "currency": "CNY" },
+  "images": ["/images/vehicles/xiaomi-su7.jpg"],
+  "specs": { "range_km": 700, "battery_kwh": 73.6, "power_kw": 220, "top_speed_kmh": 210, "seats": 5, "doors": 4 },
+  "featured": true,
+  "inStock": true,
+  "order": 6,
+  "description": {
+    "en": "Xiaomi's first EV — a high-performance electric sedan with HyperOS integration and class-leading range.",
+    "zh": "小米首款电动汽车——高性能纯电轿车，搭载澎湃 OS 生态，续航领先同级。"
+  }
+}

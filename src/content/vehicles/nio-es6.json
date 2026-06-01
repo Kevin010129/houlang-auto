@@ -1,0 +1,18 @@
+{
+  "id": "nio-es6",
+  "names": { "en": "NIO ES6", "zh": "蔚来 ES6" },
+  "slug": "nio-es6",
+  "brand": "nio",
+  "type": "SUV",
+  "fuelType": "electric",
+  "priceRange": { "min": 338000, "max": 398000, "currency": "CNY" },
+  "images": ["/images/vehicles/nio-es6.jpg"],
+  "specs": { "range_km": 490, "battery_kwh": 75, "power_kw": 360, "top_speed_kmh": 200, "seats": 5, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 14,
+  "description": {
+    "en": "Popular mid-size electric SUV with battery-swapping, NIO Pilot, and premium comfort.",
+    "zh": "热门中型电动 SUV，支持换电，搭载 NIO Pilot，尊享舒适体验。"
+  }
+}

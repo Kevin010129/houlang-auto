@@ -1,0 +1,18 @@
+{
+  "id": "xpeng-x9",
+  "names": { "en": "XPeng X9", "zh": "小鹏 X9" },
+  "slug": "xpeng-x9",
+  "brand": "xpeng",
+  "type": "MPV",
+  "fuelType": "electric",
+  "priceRange": { "min": 359800, "max": 419800, "currency": "CNY" },
+  "images": ["/images/vehicles/xpeng-x9.jpg"],
+  "specs": { "range_km": 610, "battery_kwh": 84.5, "power_kw": 235, "top_speed_kmh": 200, "seats": 7, "doors": 5 },
+  "featured": true,
+  "inStock": true,
+  "order": 11,
+  "description": {
+    "en": "Futuristic electric MPV with advanced autonomous driving and versatile interior configurations.",
+    "zh": "未来感纯电 MPV，搭载先进自动驾驶技术，多种灵活座舱布局。"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "byd",
+  "names": { "en": "BYD", "zh": "比亚迪" },
+  "slug": "byd",
+  "logo": "/images/brands/byd.png",
+  "website": "https://www.byd.com",
+  "country": "CN",
+  "description": {
+    "en": "BYD is China's largest NEV manufacturer and a global leader in electric vehicles and batteries.",
+    "zh": "比亚迪是中国最大的新能源汽车制造商，也是全球电动汽车和电池领域的领导者。"
+  },
+  "featured": true,
+  "order": 1
+}
