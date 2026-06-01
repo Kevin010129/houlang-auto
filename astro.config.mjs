@@ -6,7 +6,7 @@ import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.houlangauto.com",
+  site: "https://houlangauto.942355786.workers.dev",
   integrations: [sitemap({
     i18n: {
       defaultLocale: "en",
