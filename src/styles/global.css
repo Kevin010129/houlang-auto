@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1e3a5f;
-  --color-primary-dark: #0f2340;
-  --color-primary-light: #2d5a8e;
-  --color-accent: #e63946;
-  --color-accent-hover: #c1121f;
-  --color-gray-warm: #f5f3f0;
-  --color-gray-cool: #f0f2f5;
+  --color-primary: #0f172a;
+  --color-primary-dark: #020617;
+  --color-primary-light: #1e3a5f;
+  --color-accent: #dc2626;
+  --color-accent-hover: #b91c1c;
+  --color-accent-light: #fecaca;
+  --color-gold: #f59e0b;
+  --color-gold-light: #fef3c7;
+  --color-gray-warm: #f8f7f4;
+  --color-gray-cool: #f1f5f9;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -18,32 +21,124 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: #1a1a1a;
+  color: #1e293b;
   background: #fff;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  background: #94a3b8;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
 
 /* Section spacing */
 .section {
-  @apply py-16 md:py-24;
+  @apply py-20 md:py-28;
 }
 
 .section-heading {
-  @apply text-3xl md:text-4xl font-bold text-center mb-4;
+  @apply text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-4 tracking-tight;
 }
 
 .section-subheading {
-  @apply text-gray-500 text-center max-w-2xl mx-auto mb-12;
+  @apply text-gray-500 text-center max-w-2xl mx-auto mb-14 text-base md:text-lg;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply inline-flex items-center px-6 py-3.5 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-accent/20 hover:shadow-accent/30 active:scale-95;
+}
+
+.btn-outline {
+  @apply inline-flex items-center px-6 py-3.5 border-2 border-white/30 hover:border-white/70 hover:bg-white/10 text-white font-semibold rounded-xl transition-all duration-200 backdrop-blur-sm;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-gold;
+}
+
+/* Glass morphism */
+.glass {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20;
+}
+
+/* Animated underline */
+.link-underline {
+  @apply relative;
+}
+.link-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+}
+.link-underline:hover::after {
+  @apply w-full;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Pulse ring for CTA */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.pulse-ring::before {
+  content: '';
+  @apply absolute inset-0 rounded-full bg-accent/30;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+.badge-green {
+  @apply badge bg-emerald-100 text-emerald-700;
+}
+.badge-blue {
+  @apply badge bg-blue-100 text-primary;
 }

@@ -28,37 +28,44 @@ const newsItems = [
 ];
 ---
 
-<section class="section bg-white">
+<section class="section bg-gray-warm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between mb-8">
+    <div class="flex items-end justify-between mb-10">
       <div>
-        <h2 class="section-heading text-left">{t("home.latestNews")}</h2>
-        <p class="text-gray-500 mt-2">
+        <div class="w-10 h-1 rounded-full bg-gradient-to-r from-accent to-gold mb-3"></div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">{t("home.latestNews")}</h2>
+        <p class="text-gray-400 text-sm mt-1">
           {lang === "zh" ? "关注中国新能源汽车行业最新动态" : "Stay updated with China's NEV industry"}
         </p>
       </div>
       <a
         href={`/${lang}/news/`}
-        class="text-primary hover:text-primary-light font-medium text-sm flex items-center gap-1 transition-colors"
+        class="hidden md:inline-flex items-center gap-2 text-primary hover:text-accent font-semibold text-sm transition-colors group"
       >
         {t("home.viewAll")}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
         </svg>
       </a>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {newsItems.map((item) => (
-        <a href={`/${lang}/news/${item.slug}/`} class="group">
-          <div class="aspect-[16/9] bg-gray-100 rounded-lg mb-3 overflow-hidden">
-            <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-sm">
-              {lang === "zh" ? "新闻图片" : "News Image"}
+      {newsItems.map((item, i) => (
+        <a href={`/${lang}/news/${item.slug}/`} class="card-hover group bg-white rounded-2xl border border-gray-100 overflow-hidden">
+          <div class="aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden relative">
+            <div class="absolute inset-0 flex items-center justify-center text-gray-400 text-sm bg-gradient-to-br from-gray-100 to-gray-200 group-hover:scale-105 transition-transform duration-500">
+              <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+            </div>
+            <span class="absolute top-3 right-3 badge bg-white/90 text-gray-600 text-[10px] px-2 py-1 shadow-sm">{item.date}</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-sm font-bold text-gray-900 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+              {item.title[lang as keyof typeof item.title] || item.title.en}
+            </h3>
+            <div class="flex items-center gap-2 mt-3 text-xs text-accent font-semibold group-hover:gap-3 transition-all">
+              {t("news.readMore")}
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </div>
           </div>
-          <p class="text-xs text-gray-400 mb-1">{item.date}</p>
-          <h3 class="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
-            {item.title[lang as keyof typeof item.title] || item.title.en}
-          </h3>
         </a>
       ))}
     </div>

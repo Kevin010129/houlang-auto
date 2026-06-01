@@ -21,18 +21,32 @@ const filtered = vehicles
 
 const typeKey = vehicleType.toLowerCase();
 const typeLabel = t(`filter.${typeKey}`);
+
+const typeColors: Record<string, string> = {
+  SEDAN: "from-blue-500 to-cyan-500",
+  SUV: "from-emerald-500 to-teal-500",
+  MPV: "from-violet-500 to-purple-500",
+  MINI: "from-amber-500 to-orange-500",
+};
+const gradient = typeColors[vehicleType] || "from-primary to-primary-light";
 ---
 
 <section class="section bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900">{typeLabel}</h2>
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <div class={`inline-block w-10 h-1 rounded-full bg-gradient-to-r ${gradient} mb-3`}></div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900">{typeLabel}</h2>
+        <p class="text-gray-400 text-sm mt-1">
+          {lang === "zh" ? `精选${typeLabel}车型` : `Featured ${typeLabel} models`}
+        </p>
+      </div>
       <a
         href={`/${lang}/products/?type=${vehicleType}`}
-        class="text-primary hover:text-primary-light font-medium text-sm flex items-center gap-1 transition-colors"
+        class="hidden md:inline-flex items-center gap-2 text-primary hover:text-accent font-semibold text-sm transition-colors group"
       >
         {t("home.viewAll")}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
         </svg>
       </a>
@@ -46,30 +60,48 @@ const typeLabel = t(`filter.${typeKey}`);
         return (
           <a
             href={`/${lang}/products/${v.slug}/`}
-            class="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg hover:border-gray-200 transition-all"
+            class="card-hover group bg-white rounded-2xl border border-gray-100 overflow-hidden"
           >
-            <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center overflow-hidden">
+            <div class="aspect-[4/3] bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden relative">
               {v.images[0] ? (
                 <img
                   src={v.images[0]}
                   alt={name}
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
               ) : (
-                <div class="text-gray-400 text-sm">{lang === "zh" ? "图片加载中" : "Image"}</div>
+                <div class="text-gray-400 text-sm flex flex-col items-center gap-2">
+                  <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1"/></svg>
+                  <span>{lang === "zh" ? "即将上线" : "Coming Soon"}</span>
+                </div>
+              )}
+              {v.inStock && (
+                <span class="absolute top-3 left-3 badge-green text-[10px] px-2 py-0.5">
+                  {t("product.inStock")}
+                </span>
               )}
             </div>
             <div class="p-4">
-              <p class="text-xs text-gray-500 font-medium uppercase tracking-wide">{brandName}</p>
-              <h3 class="text-sm font-semibold text-gray-900 mt-1 group-hover:text-primary transition-colors">{name}</h3>
-              <p class="text-xs text-accent font-medium mt-2">
-                ¥{v.priceRange.min.toLocaleString()} - ¥{v.priceRange.max.toLocaleString()}
-              </p>
+              <p class="text-[11px] text-gray-400 font-semibold uppercase tracking-widest">{brandName}</p>
+              <h3 class="text-sm font-bold text-gray-900 mt-1 group-hover:text-primary transition-colors line-clamp-1">{name}</h3>
+              <div class="flex items-center justify-between mt-3">
+                <p class="text-sm font-bold text-accent">
+                  <span class="text-[10px] text-gray-400 font-normal">¥</span>
+                  {v.priceRange.min.toLocaleString()}
+                  <span class="text-[10px] text-gray-400 font-normal"> 起</span>
+                </p>
+                <svg class="w-4 h-4 text-gray-300 group-hover:text-accent group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </div>
             </div>
           </a>
         );
       })}
+    </div>
+    <div class="md:hidden mt-6 text-center">
+      <a href={`/${lang}/products/?type=${vehicleType}`} class="text-primary font-semibold text-sm inline-flex items-center gap-1">
+        {t("home.viewAll")} <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>

@@ -7,25 +7,32 @@ const { t } = useTranslations(lang);
 const steps = Array.from({ length: 7 }, (_, i) => i + 1);
 ---
 
-<section class="section bg-primary text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">{t("process.heading")}</h2>
-    <p class="text-blue-200 text-center max-w-2xl mx-auto mb-16">
+<section class="section bg-gradient-to-br from-primary via-slate-900 to-primary-dark text-white relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+  <div class="absolute top-10 right-10 w-64 h-64 bg-accent/10 rounded-full blur-[100px]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="section-heading text-white">{t("process.heading")}</h2>
+    <p class="text-blue-200/60 text-center max-w-2xl mx-auto mb-20">
       {lang === "zh"
         ? "从初次接触到持续支持，我们确保每一步都透明、专业"
         : "From initial contact to ongoing support, we ensure every step is transparent and professional"}
     </p>
     <div class="relative">
       <!-- Timeline line (desktop) -->
-      <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-blue-400/30 -translate-y-1/2"></div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-6">
+      <div class="hidden lg:block absolute top-12 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-accent/40 via-white/20 to-accent/40"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8">
         {steps.map((step) => (
           <div class="text-center relative group">
-            <div class="w-14 h-14 mx-auto bg-accent rounded-full flex items-center justify-center text-xl font-bold mb-4 relative z-10 group-hover:scale-110 transition-transform shadow-lg">
-              {step}
+            <div class={`relative z-10 w-24 h-24 mx-auto rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl ${step === 1 ? 'bg-accent shadow-accent/50 shadow-lg' : step === 7 ? 'bg-gradient-to-br from-accent to-gold shadow-accent/50 shadow-lg' : 'bg-white/10 backdrop-blur-sm border border-white/20'}`}>
+              <div>
+                <div class="text-3xl font-extrabold">{step}</div>
+                <div class="text-[10px] opacity-60 uppercase tracking-widest">Step</div>
+              </div>
             </div>
-            <h3 class="font-semibold text-white mb-2">{t(`process.step${step}`)}</h3>
-            <p class="text-sm text-blue-200 leading-relaxed">{t(`process.step${step}desc`)}</p>
+            <h3 class="font-bold text-white text-sm mb-2">{t(`process.step${step}`)}</h3>
+            <p class="text-xs text-blue-200/60 leading-relaxed max-w-[160px] mx-auto">{t(`process.step${step}desc`)}</p>
           </div>
         ))}
       </div>
