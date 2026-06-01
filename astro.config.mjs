@@ -4,9 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import alpinejs from "@astrojs/alpinejs";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.houlangauto.com",
+
   integrations: [sitemap({
     i18n: {
       defaultLocale: "en",
@@ -16,9 +19,11 @@ export default defineConfig({
       },
     },
   }), alpinejs()],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "zh"],
@@ -27,4 +32,6 @@ export default defineConfig({
       redirectDefaultLocale: false,
     },
   },
+
+  adapter: cloudflare(),
 });
