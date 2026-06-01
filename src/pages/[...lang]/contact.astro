@@ -12,7 +12,7 @@ import { getLangFromUrl } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const isZh = lang === "zh";
 
-const title = isZh ? "联系我们 — 后浪汽车" : "Contact Us — Houlang Auto";
+const title = isZh ? "联系我们 — 常州后浪新能源汽车进出口有限公司" : "Contact Us — Changzhou Houlang New Energy Vehicle Import & Export Co., Ltd.";
 const description = isZh
   ? "联系我们获取新能源汽车出口咨询和报价。我们将在24小时内回复。"
   : "Contact us for NEV export inquiries and quotations. We'll respond within 24 hours.";
@@ -92,7 +92,7 @@ const description = isZh
             <p class="text-gray-500 text-sm mb-6">{isZh ? "我们将在 24 小时内回复您。" : "We'll get back to you within 24 hours."}</p>
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
               <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
-              <input type="hidden" name="subject" value={`Contact form submission from Houlang Auto (${lang})`} />
+              <input type="hidden" name="subject" value={`Contact form submission from Changzhou Houlang NEV I/E (${lang})`} />
               <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
               <div class="grid md:grid-cols-2 gap-5">
                 <div>

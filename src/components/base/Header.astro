@@ -30,9 +30,9 @@ function isActive(href: string): boolean {
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href={`/${lang}/`} class="flex items-center gap-2 flex-shrink-0">
-        <span class="text-xl font-bold text-primary">后浪汽车</span>
-        <span class="hidden md:inline text-sm text-gray-400">|</span>
-        <span class="hidden md:inline text-sm text-gray-500">HOULANG AUTO</span>
+        <span class="text-lg md:text-xl font-bold text-primary">
+          {lang === "zh" ? "常州后浪新能源汽车进出口有限公司" : "Changzhou Houlang New Energy Vehicle Import & Export Co., Ltd."}
+        </span>
       </a>
 
       <!-- Desktop Nav -->

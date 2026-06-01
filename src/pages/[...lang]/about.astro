@@ -15,10 +15,10 @@ const brands = await getCollection("brands");
 const featuredBrands = brands.filter((b) => b.data.featured).sort((a, b) => a.data.order - b.data.order);
 
 const isZh = lang === "zh";
-const title = isZh ? "关于后浪汽车" : "About Houlang Auto";
+const title = isZh ? "关于常州后浪新能源汽车进出口有限公司" : "About Changzhou Houlang New Energy Vehicle Import & Export Co., Ltd.";
 const description = isZh
   ? "常州后浪新能源汽车进出口有限公司致力于为全球客户提供专业、透明的新能源汽车出口服务。"
-  : "Changzhou Houlang NEV Import & Export Co., Ltd. is dedicated to providing professional and transparent NEV export services to global customers.";
+  : "Changzhou Houlang New Energy Vehicle Import & Export Co., Ltd. is dedicated to providing professional and transparent NEV export services.";
 ---
 
 <MainLayout {title} {description}>
@@ -42,7 +42,7 @@ const description = isZh
             <p>
               {isZh
                 ? "常州后浪新能源汽车进出口有限公司成立于中国新能源汽车产业蓬勃发展的时代，总部位于江苏省常州市。我们是一家致力于将中国最优秀的新能源汽车带给全球客户的专业出口服务商。"
-                : "Founded in the era of rapid development of China's NEV industry, Changzhou Houlang NEV Import & Export Co., Ltd. is headquartered in Changzhou, Jiangsu Province. We are a professional export service provider dedicated to bringing China's finest new energy vehicles to global customers."}
+                : "Changzhou Houlang New Energy Vehicle Import & Export Co., Ltd. is headquartered in Changzhou, Jiangsu Province. We are a professional export service provider dedicated to bringing China's finest new energy vehicles to global customers."}
             </p>
             <p>
               {isZh
